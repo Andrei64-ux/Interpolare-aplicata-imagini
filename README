@@ -1,0 +1,63 @@
+===============================================================================
+
+                            Tema MN 2021
+                    Interpolare aplicata pe imagini
+
+===============================================================================
+
+Acest README contine informatii despre cum este structurat scheletul si
+checker-ul temei.
+
+===============================================================================
+
+1. Indicatii checker
+
+Fiecare cerinta se afla intr-un director separat:
+.
+├── bicubic
+├── bilinear
+└── nearest-neighbour
+
+In directorul tests se afla fisierele de intrare si de referinta.
+
+Fiecare cerinta are propriul checker. De exemplu, in folder-ul bilinear se
+poate rula checker-ul pentru cerinta aferenta astfel:
+
+octave checker_bilinear.m
+
+===============================================================================
+
+2. Change log
+
+v5, 13-05-2021
+- S-au actualizat testele de rotate cu unghiuri suficient de mici a.i.
+rezultatul final vizual sa fie ok
+- S-a rezolvat un bug de la bicubic_coef, in care se facea din greseala cast a
+unor valori la int, mai multe detalii pe forum aici:
+https://curs.upb.ro/mod/forum/discuss.php?d=75089
+- S-a adaugat un nou TODO in schelet in functiile de resize/rotate simple,
+fara RGB, in care trebuie sa faceti un cast al imaginii de intrare I la double
+
+v4, 06-05-2021
+- S-au actualizat testele a.i. sa se foloseasca formula corecta pentru factorii
+de scalare (inainte in solutia de referinta era un -1 lipsa).
+
+v3, 06-05-2021:
+- S-au rezolvat problemele cu testele care aveau -1 in referinta
+- S-au rezolvat problemele in cadrul verificarii efectuate de checker. Uneori
+cand se scadea din referinta imaginea uint8, rezultatele negative erau ignorate
+si trecute drept 0
+
+v2, 28-04-2021:
+- S-au modificat testele astfel incat sa se faca upsizing, nu downsizing
+- S-au modificat testele a.i. sa nu se obtina rezultate diferite pe Windows
+si pe Linux
+- S-a facut mai permisibil checker-ul. Permite diferente de +- 5 la un pixel.
+- S-au reparat testele de la calculul derivatelor din cadrul cerintei bicubic.
+S-a adaugat in schelet un TODO explicit pentru cast-ul imaginii la double.
+- S-a adaugat README pt. checker
+
+v1:
+- Publicarea temei si a scheletului initial
+
+===============================================================================
